@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from datetime import datetime
 import json
 import requests
+from utils import utils
 
 
 class Client:
@@ -35,19 +35,13 @@ class Client:
             v='20190720',
             limit=30,
             sort='oldestfirst',
-            afterTimestamp=self.start_of_today(),
-            beforeTimestamp=int(datetime.now().timestamp())
+            afterTimestamp=utils.start_of_today(),
+            beforeTimestamp=utils.today()
 
         )
         resp = requests.get(url=url, params=params)
         data = json.loads(resp.text)
         return data
-
-    def start_of_today(self):
-        return int(datetime.now().replace(hour=0, minute=0, second=0).timestamp())
-
-    def today(self):
-        return int(datetime.now().timestamp())
 
     '''    
     def get_auth(self):
@@ -57,5 +51,3 @@ class Client:
         # requests.get('https://foursquare.com/oauth2/access_token?client_id=' + client_id + '&client_secret=' + client_secret + '&grant_type=authorization_code&redirect_uri=' + redirect_uri +  '&code=' + acccess_code)
         # -> access_token
     '''
-
-
