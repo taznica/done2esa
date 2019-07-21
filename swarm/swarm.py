@@ -6,7 +6,7 @@ import requests
 from utils import utils
 
 
-class Client:
+class Swarm:
     def __init__(self, access_token, client_id, client_secret):
         self.access_token = access_token
         self.client_id = client_id

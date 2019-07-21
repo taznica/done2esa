@@ -5,7 +5,7 @@ import json
 import requests
 
 
-class Client:
+class Esa:
     def __init__(self, access_token, current_team):
         self.access_token = access_token
         self.current_team = current_team
