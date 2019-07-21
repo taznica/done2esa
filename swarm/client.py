@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
 import json
 import requests
 
@@ -32,11 +33,21 @@ class Client:
             client_id=self.client_id,
             client_secret=self.client_secret,
             v='20190720',
-            limit=10
+            limit=30,
+            sort='oldestfirst',
+            afterTimestamp=self.start_of_today(),
+            beforeTimestamp=int(datetime.now().timestamp())
+
         )
         resp = requests.get(url=url, params=params)
         data = json.loads(resp.text)
         return data
+
+    def start_of_today(self):
+        return int(datetime.now().replace(hour=0, minute=0, second=0).timestamp())
+
+    def today(self):
+        return int(datetime.now().timestamp())
 
     '''    
     def get_auth(self):
