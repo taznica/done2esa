@@ -36,7 +36,7 @@ class Swarm:
             limit=30,
             sort='oldestfirst',
             afterTimestamp=utils.start_of_today(),
-            beforeTimestamp=utils.today()
+            beforeTimestamp=utils.now()
 
         )
         resp = requests.get(url=url, params=params)

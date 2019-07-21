@@ -4,7 +4,7 @@
 from datetime import datetime
 
 
-def today():
+def now():
     return int(datetime.now().timestamp())
 
 
