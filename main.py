@@ -1,25 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os
 from esa.esa import Esa
 from swarm.swarm import Swarm
-
-access_token = os.environ['ESA_ACCESS_TOKEN']
-team_name = os.environ['ESA_TEAM_NAME']
-
-swarm_client_id = os.environ['SWARM_CLIENT_ID']
-swarm_client_secret = os.environ['SWARM_CLIENT_SECRET']
-swarm_access_token = os.environ['SWARM_ACCESS_TOKEN']
+from utils import consts
 
 
 def main():
-    esa = Esa(access_token=access_token, current_team=team_name)
-    print(esa.team(team_name))
+    esa = Esa(access_token=consts.ESA_ACCESS_TOKEN, current_team=consts.ESA_TEAM_NAME)
+    print(esa.team(consts.ESA_TEAM_NAME))
 
 
 def main_swarm():
-    swarm = Swarm(swarm_access_token, swarm_client_id, swarm_client_secret)
+    swarm = Swarm(consts.SWARM_ACCESS_TOKEN, consts.SWARM_CLIENT_ID, consts.SWARM_CLIENT_SECRET)
     print(swarm.get_checkins())
 
 
