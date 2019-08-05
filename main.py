@@ -3,6 +3,7 @@
 
 from esa.esa import Esa
 from swarm.swarm import Swarm
+from gcalendar.gcalendar import Calendar
 from utils import consts
 
 
@@ -16,5 +17,11 @@ def main_swarm():
     print(swarm.get_checkins())
 
 
+def main_calendar():
+    calendar = Calendar()
+    calendar.init_service()
+    calendar.get_upcoming_10()
+
+
 if __name__ == '__main__':
-    main_swarm()
+    main_calendar()
