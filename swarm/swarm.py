@@ -41,8 +41,6 @@ class Swarm:
         resp = requests.get(url=url, params=params)
         data = json.loads(resp.text)
 
-        print(data['response']['checkins']['items'])
-
         checkins_names = []
 
         for items in data['response']['checkins']['items']:

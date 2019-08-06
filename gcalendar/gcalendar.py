@@ -77,7 +77,6 @@ class Calendar:
             end = event['end'].get('dateTime', event['end'].get('date'))
             starttime = dates.str_to_hm(start)
             endtime = dates.str_to_hm(end)
-            print(starttime + '~' + endtime + ' ' + event['summary'])
             formatted_events.append(starttime + '~' + endtime + ' ' + event['summary'])
 
         return formatted_events
