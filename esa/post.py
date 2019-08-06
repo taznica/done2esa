@@ -29,7 +29,7 @@ class Post:
                 'tags': self.tags,
                 'category': self.category,
                 'wip': self.wip,
-                'message': self.wip,
+                'message': self.message,
                 'user': self.user,
                 'template_post_id': self.template_post_id
             }
