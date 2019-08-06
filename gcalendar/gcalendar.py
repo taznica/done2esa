@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import datetime
 import pickle
 import os.path
 
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+
+from utils import utils
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
@@ -40,7 +41,7 @@ class Calendar:
 
     def get_upcoming_10(self):
         # Call the Calendar API
-        now = datetime.datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
+        now = utils.rfc_now()
         print('Getting the upcoming 10 events')
         events_result = self.service.events().list(
             calendarId='primary',

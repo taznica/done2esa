@@ -10,3 +10,7 @@ def unix_now():
 
 def unix_start_of_today():
     return int(datetime.now().replace(hour=0, minute=0, second=0).timestamp())
+
+
+def rfc_now():
+    return datetime.utcnow().isoformat() + 'Z'  # 'Z' indicates UTC time
