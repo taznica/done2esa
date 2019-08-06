@@ -9,3 +9,6 @@ ESA_TEAM_NAME = os.environ['ESA_TEAM_NAME']
 SWARM_CLIENT_ID = os.environ['SWARM_CLIENT_ID']
 SWARM_CLIENT_SECRET = os.environ['SWARM_CLIENT_SECRET']
 SWARM_ACCESS_TOKEN = os.environ['SWARM_ACCESS_TOKEN']
+
+# If modifying these scopes, delete the file token.pickle.
+CAL_SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
