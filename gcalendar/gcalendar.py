@@ -75,4 +75,7 @@ class Calendar:
             print('No today\'s events found.')
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
+            end = event['end'].get('dateTime', event['end'].get('date'))
+            starttime = dates.str_to_hm(start)
+            endtime = dates.str_to_hm(end)
+            print(starttime + '~' + endtime + ' ' + event['summary'])

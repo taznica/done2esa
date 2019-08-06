@@ -22,3 +22,7 @@ def rfc_start_of_today():
 
 def rfc_end_of_today():
     return datetime.utcnow().replace(hour=23, minute=59, second=59).isoformat() + 'Z'
+
+
+def str_to_hm(string):
+    return datetime.fromisoformat(string).time().strftime('%H:%M')
