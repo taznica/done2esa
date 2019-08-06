@@ -114,7 +114,7 @@ venv.bak/
 
 ### venv ###
 # Linux
-bin/ 
+bin/
 lib/
 include/
 
@@ -134,3 +134,8 @@ pyvenv.cfg
 ### PyCharm ###
 
 .idea/
+
+
+# Credential files
+credentials.json
+token.pickle
