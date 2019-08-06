@@ -40,7 +40,15 @@ class Swarm:
         )
         resp = requests.get(url=url, params=params)
         data = json.loads(resp.text)
-        return data
+
+        print(data['response']['checkins']['items'])
+
+        checkins_names = []
+
+        for items in data['response']['checkins']['items']:
+             checkins_names.append(items['venue']['name'])
+
+        return checkins_names
 
     '''    
     def get_auth(self):

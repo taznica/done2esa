@@ -26,3 +26,7 @@ def rfc_end_of_today():
 
 def str_to_hm(string):
     return datetime.fromisoformat(string).time().strftime('%H:%M')
+
+
+def date_of_today():
+    return datetime.now().strftime('%Y/%m/%d')
