@@ -20,7 +20,7 @@ def main_swarm():
 def main_calendar():
     calendar = Calendar()
     calendar.init_service()
-    calendar.get_upcoming_10()
+    calendar.get_events_today()
 
 
 if __name__ == '__main__':

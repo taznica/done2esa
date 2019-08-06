@@ -56,3 +56,23 @@ class Calendar:
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
             print(start, event['summary'])
+
+    def get_events_today(self):
+        start_of_today = utils.rfc_start_of_today()
+        end_of_today = utils.rfc_end_of_today()
+        events_result = self.service.events().list(
+            calendarId='primary',
+            timeMax=end_of_today,
+            timeMin=start_of_today,
+            maxResults=10,
+            singleEvents=True,
+            orderBy='startTime'
+        ).execute()
+        events = events_result.get('items', [])
+        print(events)
+
+        if not events:
+            print('No today\'s events found.')
+        for event in events:
+            start = event['start'].get('dateTime', event['start'].get('date'))
+            print(start, event['summary'])
