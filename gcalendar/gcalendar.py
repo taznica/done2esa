@@ -8,7 +8,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-from utils import utils
+from utils import dates
 
 # If modifying these scopes, delete the file token.pickle.
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
@@ -41,7 +41,7 @@ class Calendar:
 
     def get_upcoming_10(self):
         # Call the Calendar API
-        now = utils.rfc_now()
+        now = dates.rfc_now()
         print('Getting the upcoming 10 events')
         events_result = self.service.events().list(
             calendarId='primary',
@@ -58,8 +58,8 @@ class Calendar:
             print(start, event['summary'])
 
     def get_events_today(self):
-        start_of_today = utils.rfc_start_of_today()
-        end_of_today = utils.rfc_end_of_today()
+        start_of_today = dates.rfc_start_of_today()
+        end_of_today = dates.rfc_end_of_today()
         events_result = self.service.events().list(
             calendarId='primary',
             timeMax=end_of_today,

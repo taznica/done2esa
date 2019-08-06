@@ -3,7 +3,7 @@
 
 import json
 import requests
-from utils import utils
+from utils import dates
 
 
 class Swarm:
@@ -35,8 +35,8 @@ class Swarm:
             v='20190720',
             limit=30,
             sort='oldestfirst',
-            afterTimestamp=utils.unix_start_of_today(),
-            beforeTimestamp=utils.unix_now()
+            afterTimestamp=dates.unix_start_of_today(),
+            beforeTimestamp=dates.unix_now()
 
         )
         resp = requests.get(url=url, params=params)
