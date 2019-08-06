@@ -8,10 +8,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-from utils import dates
-
-# If modifying these scopes, delete the file token.pickle.
-SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+from utils import consts, dates
 
 
 class Calendar:
@@ -30,7 +27,7 @@ class Calendar:
                 creds.refresh(Request())
             else:
                 flow = InstalledAppFlow.from_client_secrets_file(
-                    'credentials.json', SCOPES)
+                    'credentials.json', consts.CAL_SCOPES)
                 creds = flow.run_local_server(port=8080)
             # Save the credentials for the next run
             with open('token.pickle', 'wb') as token:
@@ -75,4 +72,7 @@ class Calendar:
             print('No today\'s events found.')
         for event in events:
             start = event['start'].get('dateTime', event['start'].get('date'))
-            print(start, event['summary'])
+            end = event['end'].get('dateTime', event['end'].get('date'))
+            starttime = dates.str_to_hm(start)
+            endtime = dates.str_to_hm(end)
+            print(starttime + '~' + endtime + ' ' + event['summary'])
