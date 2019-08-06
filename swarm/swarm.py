@@ -37,7 +37,6 @@ class Swarm:
             sort='oldestfirst',
             afterTimestamp=dates.unix_start_of_today(),
             beforeTimestamp=dates.unix_now()
-
         )
         resp = requests.get(url=url, params=params)
         data = json.loads(resp.text)

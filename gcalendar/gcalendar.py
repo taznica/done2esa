@@ -48,7 +48,8 @@ class Calendar:
             timeMin=now,
             maxResults=10,
             singleEvents=True,
-            orderBy='startTime').execute()
+            orderBy='startTime'
+        ).execute()
         events = events_result.get('items', [])
 
         if not events:
@@ -69,7 +70,6 @@ class Calendar:
             orderBy='startTime'
         ).execute()
         events = events_result.get('items', [])
-        print(events)
 
         if not events:
             print('No today\'s events found.')
